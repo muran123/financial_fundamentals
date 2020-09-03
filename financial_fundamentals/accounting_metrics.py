@@ -68,7 +68,7 @@ import financial_fundamentals.edgar as edgar
 def earnings_per_share(required_data):
     start, end = required_data.index[0], required_data.index[-1]
     for symbol, values in required_data.iteritems():
-        print 'getting symbol {}'.format(symbol)
+        print('getting symbol {}'.format(symbol))
         filings = edgar.get_filings(symbol=symbol, 
                                     filing_type='10-Q')
         filings = filings[filings.bisect(start) - 1:filings.bisect(end)]
@@ -87,4 +87,4 @@ if __name__ == '__main__':
     required_data = pd.DataFrame(columns=DOW_TICKERS, 
                                  index=pd.date_range('2012-1-1', '2012-12-31'))
     eps = earnings_per_share(required_data)
-    print eps
+    print(eps)
